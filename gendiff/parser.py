@@ -1,5 +1,4 @@
-"""Argument parser."""
-
+"""[summary]."""
 import argparse
 
 
