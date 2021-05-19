@@ -8,5 +8,4 @@ dist/
 coverage.xml
 .pytest_cache/
 .vscode
-fixtures/
 draws.py

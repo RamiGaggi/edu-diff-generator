@@ -46,7 +46,11 @@ def generate_diff(path_to_file1, path_to_file2):  # noqa: WPS210, WPS231
     Returns:
         str: [description]
     """
-    json_file1, json_file2 = open_files(path_to_file1, path_to_file2)
+    json_file1, json_file2 = open_files(
+        path_to_file1,
+        path_to_file2,
+        fmt='json',
+    )
     result_diff_list = []
     for key, value in {**json_file1, **json_file2}.items():
         if key in json_file1 and key in json_file2:
@@ -64,4 +68,4 @@ def generate_diff(path_to_file1, path_to_file2):  # noqa: WPS210, WPS231
     result_diff_list.sort(key=lambda attr: attr[1])
     result_diff = [' '.join(item) for item in result_diff_list]
 
-    return '{\n' + '\n'.join(result_diff) + '\n}'
+    return '{\n' + '\n'.join(result_diff) + '\n}' if result_diff else repr({})
