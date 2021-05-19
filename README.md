@@ -3,6 +3,7 @@
 [![diff-check](https://github.com/RamiGaggi/python-project-lvl2/actions/workflows/gendiff-check.yml/badge.svg)](https://github.com/RamiGaggi/python-project-lvl2/actions/workflows/gendiff-check.yml)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/6140e64cfc802ddecbd3/maintainability)](https://codeclimate.com/github/RamiGaggi/python-project-lvl2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6140e64cfc802ddecbd3/test_coverage)](https://codeclimate.com/github/RamiGaggi/python-project-lvl2/test_coverage)
 
-## Generate diff for flat JSON in string:
+## Generate diff for flat JSON string:
 [![asciicast](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN.svg)](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN)
