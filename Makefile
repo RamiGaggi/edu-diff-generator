@@ -8,7 +8,7 @@ test-build:
 	poetry run pytest tests
 
 test-coverage:
-	poetry run coverage run --source=gendiff -m pytest tests && coverage xml
+	poetry run coverage run --source=gendiff -m pytest tests && poetry run coverage xml
 
 publish:
 	poetry publish --dry-run
