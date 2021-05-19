@@ -18,15 +18,15 @@ def template(file1, file2, expect):
 
 def test_flat_json1():
     """Test 2  empty json files."""
-    file1 = 'fixtures/flat_json/pack2/file1.json'
-    file2 = 'fixtures/flat_json/pack2/file2.json'
-    expect = 'fixtures/flat_json/pack2/expect.txt'
+    file1 = 'tests/fixtures/flat_json/pack2/file1.json'
+    file2 = 'tests/fixtures/flat_json/pack2/file2.json'
+    expect = 'tests/fixtures/flat_json/pack2/expect.txt'
     template(file1, file2, expect)
 
 
 def test_flat_json2():
     """Test 2 flat json files."""
-    file1 = 'fixtures/flat_json/pack1/file1.json'
-    file2 = 'fixtures/flat_json/pack1/file2.json'
-    expect = 'fixtures/flat_json/pack1/expect.txt'
+    file1 = 'tests/fixtures/flat_json/pack1/file1.json'
+    file2 = 'tests/fixtures/flat_json/pack1/file2.json'
+    expect = 'tests/fixtures/flat_json/pack1/expect.txt'
     template(file1, file2, expect)

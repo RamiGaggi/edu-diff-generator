@@ -4,6 +4,9 @@ install:
 build:
 	poetry build
 
+test-build:
+	poetry run pytest
+
 publish:
 	poetry publish --dry-run
 
