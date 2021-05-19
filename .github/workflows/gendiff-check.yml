@@ -22,5 +22,12 @@ jobs:
       - name: Run tests
         run: |
           make test-build
+      - uses: paambaati/codeclimate-action@v2.7.5
+      - name: Setup latest python
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+        with:
+            coverageCommand: make test-coverage
+ 
 
 

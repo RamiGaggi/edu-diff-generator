@@ -5,7 +5,10 @@ build:
 	poetry build
 
 test-build:
-	poetry run pytest
+	poetry run pytest tests
+
+test-coverage:
+	poetry run coverage run --source=gendiff -m pytest tests
 
 publish:
 	poetry publish --dry-run
