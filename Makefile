@@ -4,8 +4,8 @@ install:
 build:
 	poetry build
 
-test-build:
-	poetry run pytest tests
+test:
+	poetry run pytest -vv tests
 
 test-coverage:
 	poetry run coverage run --source=gendiff -m pytest tests && poetry run coverage xml
@@ -18,3 +18,5 @@ package-install:
 	
 lint:
 	poetry run flake8 gendiff
+
+.PHONY: build
