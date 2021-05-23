@@ -10,7 +10,8 @@ def main():
     args = create_arg_parser()
     file1 = args.first_file
     file2 = args.second_file
-    print(generate_diff(file1, file2))
+    output_format = args.format
+    print(generate_diff(file1, file2, output_format))
 
 
 if __name__ == '__main__':
