@@ -57,9 +57,17 @@ def test_flat_yaml_json():
     template(file1, file2, expect)
 
 
+def test_recursive():
+    """Test 2 recursive json-yaml files."""
+    file1 = 'tests/fixtures/recursive/file1.json'
+    file2 = 'tests/fixtures/recursive/file2.yaml'
+    expect = 'tests/fixtures/recursive/expect.txt'
+    template(file1, file2, expect)
+
+
 def test_unsupported_format():
     """Test unsupported type files."""
-    file1 = 'tests/fixtures/file1.xml'
-    file2 = 'tests/fixtures/file2.xml'
+    file1 = 'tests/fixtures/unsupported_type/file1.xml'
+    file2 = 'tests/fixtures/unsupported_type/file2.xml'
     with pytest.raises(TypeError):
         generate_diff(file1, file2)
