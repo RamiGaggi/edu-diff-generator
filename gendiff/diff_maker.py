@@ -82,6 +82,18 @@ def get_diff_operator(item):
     return item[3]
 
 
+def get_diff_status(item):
+    """Get item diff status of flat dictionary.
+
+    Args:
+        item (list): list of uniq items
+
+    Returns:
+        str: Status: 'ADDED', 'REMOVED', 'CHANGED', 'UNCHANGED'.
+    """
+    return item[4]
+
+
 def normalized(flat_diff):
     """Omit duplicate diff operators for child elements.
 
@@ -112,24 +124,45 @@ def create_diff(flat_dict1, flat_dict2):
         list: List with  diff operators:
         ['follow', 'false', (), '-']
         [0]: key, [1]: value, [2]: parents chain,
-        [3]: diff operator -('-' - removed, '+' - addeed, '_' - without changes)
+        [3]: diff operator
+        [4]: diff status - ('-' - removed, '+' - addeed, '_' - without changes)
     """
     result = []
 
     for el in flat_dict1:  # noqa: WPS426
         key = get_key(el)
-        val = get_val(el)
+        chain = get_chain(el)
         if el in flat_dict2:
-            result.append(el + ['_'])
-        elif [key, val] in map(lambda item: [item[0], item[1]], flat_dict2):
-            result.append(el + ['-'])
+            result.append(el + ['_'] + ['UNCHANGED'])
+        elif [key, chain] in map(lambda item: [item[0], item[2]], flat_dict2):
+            result.append(el + ['-'] + ['CHANGED'])
         else:
-            result.append(el + ['-'])
+            result.append(el + ['-'] + ['REMOVED'])
 
-    for el in flat_dict2:
-        if el in flat_dict1:
+    for el2 in flat_dict2:
+        key2 = get_key(el2)
+        chain2 = get_chain(el2)
+        if el2 in flat_dict1:
             continue
+        elif [key2, chain2] in map(lambda item: [item[0], item[2]], flat_dict1):
+            result.append(el2 + ['+'] + ['CHANGED'])
         else:
-            result.append(el + ['+'])
+            result.append(el2 + ['+'] + ['ADDED'])
     result.sort(key=lambda item: item[0])
     return normalized(result)
+
+
+def get_changed_item(source_item, diff):
+    """Find a source item with changed value.
+
+    Args:
+        source_item (list): Diff item.
+        diff (list): List with a difference between two files.
+
+    Returns:
+        list: Item with changed value.
+    """
+    key = get_key(source_item)
+    chain = get_chain(source_item)
+    result = filter(lambda el: (el[0] == key and el[2] == chain and el[3] == '+'), diff)  # noqa: E501
+    return list(result)[0]

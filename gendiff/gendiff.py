@@ -1,6 +1,7 @@
 """Generates diff for two files."""
 
 from gendiff.diff_maker import create_diff, flat_dict
+from gendiff.formats.plain import form_plain
 from gendiff.formats.stylish import form_stylish
 from gendiff.parser import parse_file
 
@@ -24,3 +25,5 @@ def generate_diff(path_to_file1, path_to_file2, style='stylish'):
     diff = create_diff(flat_dict(file1), flat_dict(file2))
     if style == 'stylish':
         return form_stylish(diff)
+    if style == 'plain':
+        return form_plain(diff)
