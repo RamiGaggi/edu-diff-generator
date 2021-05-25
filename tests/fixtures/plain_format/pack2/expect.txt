@@ -1,0 +1,2 @@
+Property 'timeout' was updated. From 50 to 30
+Property 'type' was removed
