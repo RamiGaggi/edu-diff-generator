@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 """Script to start the difference checker."""
+
 from gendiff.gendiff import generate_diff
 from gendiff.parser import create_arg_parser
 

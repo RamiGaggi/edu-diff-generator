@@ -2,11 +2,12 @@
 from copy import deepcopy
 
 
-def flat_dict(source):
+def flat_dict(source, convert=True):
     """Flat dictinoary to the list of uniq items .
 
     Args:
         source (dict): Dictionary.
+        convert (bool, optional): Converts py singelton objects to json objects.
 
     Returns:
         list: List of uniq items, example.
@@ -22,12 +23,13 @@ def flat_dict(source):
                 result.append([key, 'PARENT', chain])
                 inner(value, chain + (key,))
             else:
-                if value is None:
-                    value = 'null'
-                if value is True:
-                    value = 'true'
-                if value is False:
-                    value = 'false'
+                if convert:
+                    if value is None:
+                        value = 'null'
+                    if value is True:
+                        value = 'true'
+                    if value is False:
+                        value = 'false'
                 result.append([key, value, chain])
 
     inner(source)
@@ -122,7 +124,7 @@ def create_diff(flat_dict1, flat_dict2):
 
     Returns:
         list: List with  diff operators:
-        ['follow', 'false', (), '-']
+        ['follow', 'false', (), '-', 'REMOVED']
         [0]: key, [1]: value, [2]: parents chain,
         [3]: diff operator
         [4]: diff status - ('-' - removed, '+' - addeed, '_' - without changes)
