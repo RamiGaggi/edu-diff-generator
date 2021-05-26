@@ -1,4 +1,4 @@
-"""[summary]."""
+"""Output format."""
 
 from gendiff.diff_maker import (
     get_chain,

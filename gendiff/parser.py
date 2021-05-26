@@ -1,4 +1,5 @@
 """Parse files and CLI arguments."""
+
 import argparse
 import json
 
