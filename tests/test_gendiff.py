@@ -1,5 +1,7 @@
 """Tests."""
 
+import json
+from gendiff.parser import parse_file
 import pytest
 from gendiff.gendiff import generate_diff
 
@@ -80,6 +82,16 @@ def test_plain_format2():
     file2 = 'tests/fixtures/plain_format/pack2/file2.yaml'
     expect = 'tests/fixtures/plain_format/pack2/expect.txt'
     template(file1, file2, expect, style='plain')
+
+
+def test_json_format():
+    """Test 2  json-yaml files for plain output."""
+    file1 = 'tests/fixtures/json_format/file1.json'
+    file2 = 'tests/fixtures/json_format/file2.yaml'
+    expect = 'tests/fixtures/json_format/expect.json'
+    assert parse_file(expect) == json.loads(
+        generate_diff(file1, file2, style='json'),
+    )
 
 
 def test_unsupported_format():
