@@ -7,3 +7,19 @@
 
 ## Generate diff for flat JSON string:
 [![asciicast](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN.svg)](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN)
+
+## Install
+1) Clone repository ```git clone https://github.com/RamiGaggi/edu-diff-generator.git```
+2) Go to working directory ```cd edu-diff-generator```
+3) Install dependencies ```make install```
+4) Install as package```make package-install``` or use ```poetry run```
+
+
+## Usage
+```
+gendiff -f json tests/fixtures/recursive/file1.json  tests/fixtures/recursive/file2.yaml
+```
+```
+poetry run gendiff -f json tests/fixtures/recursive/file1.json  tests/fixtures/recursive/file2.yaml
+```
+[![asciicast](https://asciinema.org/a/8SE7wW9mDLf8phUtk5riw9JxH.svg)](https://asciinema.org/a/8SE7wW9mDLf8phUtk5riw9JxH)
