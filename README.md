@@ -5,9 +5,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/6140e64cfc802ddecbd3/maintainability)](https://codeclimate.com/github/RamiGaggi/python-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6140e64cfc802ddecbd3/test_coverage)](https://codeclimate.com/github/RamiGaggi/python-project-lvl2/test_coverage)
 
-## Generate diff for flat JSON string:
-[![asciicast](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN.svg)](https://asciinema.org/a/JZWkJdkmyS3zfNH4ent5dceGN)
-
 ## Install
 1) Clone repository ```git clone https://github.com/RamiGaggi/edu-diff-generator.git```
 2) Go to working directory ```cd edu-diff-generator```
