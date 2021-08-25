@@ -1,5 +1,8 @@
 # Diff Generator
 
+Difference generator - CLI utility that determines the difference between two data structures(json, yaml).
+Generating a report in plain text, stylish and json format.
+
 [![asciicast](https://asciinema.org/a/8SE7wW9mDLf8phUtk5riw9JxH.svg)](https://asciinema.org/a/8SE7wW9mDLf8phUtk5riw9JxH)
 
 ## Tests and linter status(CI)
